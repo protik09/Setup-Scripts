@@ -27,16 +27,13 @@ pandas
 #
 ## Fun terminal coloring and drawing
 #
-pdb
 termcolor
 colorama
 pyfiglet
 #
 ## Documentation depends
 #
-pydoctor
 epydoc
-snakefood
 sphinx
 #
 ## Python threading depends
@@ -49,3 +46,10 @@ service_identity
 cronus
 pyserial
 pycrc
+#
+## Not available for Python 3 
+## Moved this to the end since python3 fails on this line and skips the rest of the requirements file.
+#
+snakefood
+pydoctor
+pdb
