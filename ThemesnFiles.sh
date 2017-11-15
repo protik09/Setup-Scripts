@@ -19,23 +19,23 @@ sudo add-apt-repository -y ppa:atareao/atareao
 sudo add-apt-repository -y ppa:alexeftimie/ppa
 
 echo "Let's get updates and install all this stuff..."
-sudo apt-get update
-sudo apt-get -y dist-upgrade
+sudo apt update
+sudo apt -y full-upgrade
 
 # Add proper SSH keys to your
 
 # Install Themes
 
 echo "Installing Themes...."
-sudo apt-get remove unity-tweak-tool && sudo apt-get install -y gnome-tweak-tool
-sudo apt-get install -y numix-gtk-theme
-sudo apt-get install -y numix-icon-theme numix-icon-theme-circle
-sudo apt-get install -y pop-theme
-sudo apt-get install -y adapta-gtk-theme
-sudo apt-get install -y vertex-theme
-sudo apt-get install -y arc-theme
-sudo apt-get install -y windos-10-themes
-sudo apt-get install -y victory-icon-theme
+sudo apt remove unity-tweak-tool && sudo apt install -y gnome-tweak-tool
+sudo apt install -y numix-gtk-theme
+sudo apt install -y numix-icon-theme numix-icon-theme-circle
+sudo apt install -y pop-theme
+sudo apt install -y adapta-gtk-theme
+sudo apt install -y vertex-theme
+sudo apt install -y arc-theme
+sudo apt install -y windos-10-themes
+sudo apt install -y victory-icon-theme
 
 # Install Tools
 
