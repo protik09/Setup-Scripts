@@ -1,0 +1,11 @@
+##
+##### Python requiremetns that I can't fit anywhere else
+##
+#
+## Random depends that I feel like including for no other reason than whimsy
+#
+--pre vaex
+#
+## Refer to the python_requirements.txt for basic depends
+#
+-r python_requirements.txt

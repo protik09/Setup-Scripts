@@ -1,0 +1,51 @@
+##
+##### Minimum requirements for running common scripts and documentation
+##
+#
+## Python dev depends
+#
+setuptools
+python-build
+wheel
+pytools 
+python-periphery
+#
+##Excel depends
+#
+xlrd 
+pyexcel 
+pyexcel-xls 
+pyexcel-xlsx
+xlsxwriter
+#
+## Python number crunching and graphing
+#
+numpy
+matplotlib
+scipy
+pandas
+#
+## Fun terminal coloring and drawing
+#
+pdb
+termcolor
+colorama
+pyfiglet
+#
+## Documentation depends
+#
+pydoctor
+epydoc
+snakefood
+sphinx
+#
+## Python threading depends
+#
+twisted
+service_identity
+#
+## Other random depends
+#
+cronus
+pyserial
+pycrc

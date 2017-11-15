@@ -1,0 +1,3 @@
+##
+##### Minimum requirements for running and designing GUI apps with python
+##
