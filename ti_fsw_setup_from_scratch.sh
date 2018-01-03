@@ -17,7 +17,6 @@ then
     echo
     quitprogram
 else
-then
     echo "This is the first time this script has run."
 fi
 
