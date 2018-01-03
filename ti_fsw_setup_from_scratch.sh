@@ -41,6 +41,7 @@ git config --global  user.email $gitemail
 touch ~/Documents/ti_fsw_setup_middle.token
 
 echo "Removing the need to type annoying sudo passwords. (Warning this reduces security if you leave your desktpo unlocked)."
+sudo echo $USER 'ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers.d
 
 # Then we go to the home directory and make a nice Projects folder for all out git repos
 cd ~
