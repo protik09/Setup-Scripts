@@ -27,6 +27,15 @@ sudo apt install -y git
 # Now let's get the username for your git repos.
 echo "Please Enter your git username:"
 read gitusername
+echo "Please Enter you First Name and Last Name:"
+read gituser
+echo "Please enter your teamindus email in full:"
+read gitemail
+
+# Properly setup the git infrastructure
+echo; echo "Setting up your git environment."
+git config --global user.name $gituser
+git config --global  user.email $gitemail
 
 # Since the program has started add the in midrun token to the documents folder.
 touch ~/Documents/ti_fsw_setup_middle.token
