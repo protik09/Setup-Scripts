@@ -44,7 +44,7 @@ if [ ! -z "$1" ]; then
     echo $USER "ALL=(ALL) NOPASSWD: ALL" >> $1
 else
     export EDITOR=$0
-    visudo
+    sudo visudo
 fi
 # sudo echo $USER 'ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
