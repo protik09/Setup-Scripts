@@ -52,7 +52,7 @@ fi
 cd ~
 mkdir Projects > /dev/null 2>&1 || true # This is so that it keeps running even if the Projects foder exists.
 cd Projects
-git clone https://www.github.com/protik/Setup-Scripts.git
+git clone https://www.github.com/protik09/Setup-Scripts.git
 git clone $gitusername@10.10.0.26:/axiom/flight-software/depot/LanderFlightSoftware.git
 
 # First we go into LanderFlightSoftware and install all the dependencies for building stuff, then we'll install the fun stuff.
