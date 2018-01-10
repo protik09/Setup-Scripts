@@ -51,6 +51,7 @@ pycrc
 ## Not available for Python 3 
 ## Moved this to the end since python3 fails on this line and skips the rest of the requirements file.
 #
+PySmbClient
 snakefood
 pydoctor
 pdb
