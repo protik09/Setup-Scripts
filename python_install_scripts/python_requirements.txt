@@ -9,6 +9,8 @@ python-build
 wheel
 pytools 
 python-periphery
+logging
+smbclient
 #
 ##Excel depends
 #
@@ -23,7 +25,6 @@ xlsxwriter
 numpy
 matplotlib
 scipy
-pandas
 #
 ## Fun terminal coloring and drawing
 #
