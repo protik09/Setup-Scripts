@@ -10,6 +10,7 @@ wheel
 pytools 
 python-periphery
 logging
+PySmbClient
 #
 ##Excel depends
 #
