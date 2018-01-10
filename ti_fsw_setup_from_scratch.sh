@@ -39,13 +39,14 @@ git config --global  user.email $gitemail
 # Since the program has started add the in midrun token to the documents folder.
 touch ~/Documents/ti_fsw_setup_middle.token
 
-echo "Removing the need to type annoying sudo passwords. (Warning this reduces security if you leave your desktpo unlocked)."
-if [ ! -z "$1" ]; then
-    echo $USER "ALL=(ALL) NOPASSWD: ALL" >> $1
-else
-    export EDITOR=$0
-    sudo visudo
-fi
+# Commented out the follwoing as manual intervention is necessary.
+#echo "Removing the need to type annoying sudo passwords. (Warning this reduces security if you leave your desktpo unlocked)."
+#if [ ! -z "$1" ]; then
+#    echo $USER "ALL=(ALL) NOPASSWD: ALL" >> $1
+#else
+#    export EDITOR=$0
+#    sudo visudo
+#fi
 # sudo echo $USER 'ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Then we go to the home directory and make a nice Projects folder for all out git repos
