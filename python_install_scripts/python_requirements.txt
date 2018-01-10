@@ -9,8 +9,6 @@ python-build
 wheel
 pytools 
 python-periphery
-logging
-PySmbClient
 #
 ##Excel depends
 #
@@ -52,6 +50,7 @@ pycrc
 ## Moved this to the end since python3 fails on this line and skips the rest of the requirements file.
 #
 PySmbClient
+logging
 snakefood
 pydoctor
 pdb
