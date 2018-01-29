@@ -59,7 +59,8 @@ sudo apt install -y indicator-multiload
 sudo apt install -y python-pip
 sudo apt install -y google-chrome-stable
 sudo apt install -y sublime-text
-sudo apt install -y code
+sudo apt install -y code gnustep-gui-runtime # Second one allows you to use "say" to test-to-speech in bash
+sudo apt install -y xrdp
 
 # Delete useless programs
 sudo apt-get remove --purge libreoffice*
