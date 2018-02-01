@@ -52,5 +52,3 @@ pycrc
 PySmbClient
 logging
 snakefood
-pydoctor
-pdb
