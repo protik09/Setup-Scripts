@@ -110,8 +110,8 @@ commondepends()
 	# pip2 install --upgrade pycrc
 	# pip2 install --upgrade twisted service_identity
 	# pip2 install --upgrade pydoctor epydoc
-	pip2 install --upgrade --requirement python_requirements.txt
-	pip3 install --upgrade --requirement python_requirements.txt
+	pip install --upgrade --requirement python_requirements.txt
+	#pip3 install --upgrade --requirement python_requirements.txt
 }
 
 quitprogram()
