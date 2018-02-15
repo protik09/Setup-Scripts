@@ -22,4 +22,4 @@ code-insiders --install-extension ms-python.python
 code-insiders --install-extension emmanuelbeziat.vscode-great-icons
 code-insiders --install-extension robertohuertasm.vscode-icons
 code-insiders --install-extension eamodio.gitlens
-code --install-extension oderwat.indent-rainbow
+code-insiders --install-extension oderwat.indent-rainbow
