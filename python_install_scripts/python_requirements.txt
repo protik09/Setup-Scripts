@@ -10,6 +10,11 @@ wheel
 pytools 
 python-periphery
 #
+## Text Editor Depends (Linting and autopep8)
+#
+autopep8
+pylint
+#
 ##Excel depends
 #
 xlrd 
