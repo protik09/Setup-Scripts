@@ -23,3 +23,4 @@ code-insiders --install-extension emmanuelbeziat.vscode-great-icons
 code-insiders --install-extension robertohuertasm.vscode-icons
 code-insiders --install-extension eamodio.gitlens
 code-insiders --install-extension oderwat.indent-rainbow
+code --install-extension ajshort.include-autocomplete
