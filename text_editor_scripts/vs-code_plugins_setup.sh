@@ -23,3 +23,4 @@ code --install-extension emmanuelbeziat.vscode-great-icons
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension eamodio.gitlens
 code --install-extension oderwat.indent-rainbow
+code --install-extension ajshort.include-autocomplete
