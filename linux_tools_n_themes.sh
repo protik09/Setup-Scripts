@@ -5,18 +5,8 @@ download_dir = ./Downloads
 # First let's add all the new repositories to the list
 
 echo "Adding the Themes Repositories to the list..."
-sudo add-apt-repository -y ppa:numix/ppa
-sudo apt-add-repository -y ppa:tista/adapta
-sudo apt-add-repository -y ppa:system76/pop
-sudo add-apt-repository -y ppa:peterlevi/ppa
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/vertex-theme.list"
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/arc-theme.list"
-sudo add-apt-repository -y ppa:noobslab/themes
-sudo add-apt-repository -y ppa:noobslab/icons
 
 echo "Now we'll add some useful widget and tool repositories...."
-sudo add-apt-repository -y ppa:atareao/atareao
-sudo add-apt-repository -y ppa:alexeftimie/ppa
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # Add chrome keys
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' # Add chrome repo
 
@@ -35,12 +25,6 @@ sudo apt -y full-upgrade
 
 echo "Installing Themes...."
 sudo apt remove unity-tweak-tool && sudo apt install -y gnome-tweak-tool
-sudo apt install -y numix-gtk-theme
-sudo apt install -y numix-icon-theme numix-icon-theme-circle
-sudo apt install -y pop-theme
-sudo apt install -y adapta-gtk-theme
-sudo apt install -y vertex-theme
-sudo apt install -y arc-theme
 
 # Install Tools
 
@@ -55,7 +39,7 @@ sudo apt install -y flake8 autopep8
 sudo apt install -y devscripts
 sudo apt install -y variety variety-slideshow
 sudo apt install -y redshift redshift-gtk
-sudo apt install -y indicator-multiload
+#sudo apt install -y indicator-multiload
 sudo apt install -y python-pip
 sudo apt install -y google-chrome-stable
 sudo apt install -y sublime-text
