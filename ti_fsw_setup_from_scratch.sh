@@ -63,6 +63,18 @@ git checkout development
 cd install
 /bin/bash install_all.sh
 
+# Then we download the LfswTest and install it's dependencies
+cd ..
+git clone $gitusername@10.10.0.26:/axiom/flight-software/depot/LfswTest.git
+cd LfswTest
+/bin/bash install_all.sh
+
+# Then we download the PCOC(AFC) repository and
+cd ..
+git clone $gitusername@10.10.0.26:/axiom/lander-pcoc/depot/pcoc.git
+cd pcoc/test/DPOA/
+/bin/bash install_reqs.sh
+sudo -H python3 -m pip install -r requirements.txt
 
 # Now that the important stuff in installed we'll install the python dependencies
 cd ~/Projects/Setup-Scripts/python_install_scripts
@@ -70,7 +82,7 @@ cd ~/Projects/Setup-Scripts/python_install_scripts
 
 # Furthermore we shall install GUI stuff for fun & profit!!
 cd ~/Projects/Setup-Scripts/
-sudo chmod a+x *.sh
+sudo chmod +x *.sh
 /bin/bash linux_tools_n_themes.sh
 
 # Now that the text editors have been installed, let's instal all those useful plugins that we know and love.
