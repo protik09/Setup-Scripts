@@ -57,5 +57,5 @@ pycrc
 ## Moved this to the end since python3 fails on this line and skips the rest of the requirements file.
 #
 PySmbClient
-logging
-snakefood
+#logging
+#snakefood
