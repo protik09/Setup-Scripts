@@ -32,8 +32,8 @@ sudo apt install -y git
 sudo apt install -y clang
 sudo apt install -y openssh-server
 sudo apt install -y openssh
-sudo apt install -y variety variety-slideshow
-#sudo apt install -y indicator-multiload
+# sudo apt install -y variety variety-slideshow
+# sudo apt install -y indicator-multiload
 sudo apt install -y python-pip
 sudo apt install -y google-chrome-stable
 sudo apt install -y code
