@@ -22,6 +22,7 @@ sudo apt -y full-upgrade
 # Install Themes
 
 echo "Installing Themes...."
+echo "NO THEMES"
 # sudo apt remove unity-tweak-tool && sudo apt install -y gnome-tweak-tool
 
 # Install Tools
@@ -47,6 +48,7 @@ sudo apt autoremove -y
 
 echo "Downloading Manual Install Packages"
 echo "Installing WPS Office"
-wget -O ~/Downloads/wps-office_a21.deb http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb #change this if it ever updates
-sudo dpkg -i ~/Downloads/wps-office_*.deb
-sudo apt install -f # Install any missing dependencies.
+echo "NO WPS!!!"
+# wget -O ~/Downloads/wps-office_a21.deb http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb #change this if it ever updates
+# sudo dpkg -i ~/Downloads/wps-office_*.deb
+# sudo apt install -f # Install any missing dependencies.
