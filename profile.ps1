@@ -60,12 +60,12 @@ New-Alias dev personalCode
 
 # The following Show-Markdown is only available from Powershell 7
 @"
-| Alias     	| Description                             	|\
-|-----------	|-----------------------------------------	|\
-| updateall 	| Update all programs using Chocolatey    	|\
-| pico      	| Setup Raspberry Pi Pico Dev Environment 	|\
-| setup     	| Setup-Scripts                           	|\
-| embed     	| Embedded Projects                       	|\
-| sysmon    	| System Monitor Projects                 	|\
-| dev       	| Peronal Code Folder                   	|
+| Alias     | Description                             |\
+|-----------|-----------------------------------------|\
+| updateall | Update all programs using Chocolatey    |\
+| pico      | Setup Raspberry Pi Pico Dev Environment |\
+| setup     | Setup-Scripts                           |\
+| embed     | Embedded Projects                       |\
+| sysmon    | System Monitor Projects                 |\
+| dev       | Peronal Code Folder                     |
 "@ | Show-Markdown
