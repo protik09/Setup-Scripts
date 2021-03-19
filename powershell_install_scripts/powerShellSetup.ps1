@@ -12,6 +12,7 @@
     {
         (get-host).UI.RawUI.Backgroundcolor="DarkRed"
         echo "`nPlease run this script in an elevated Powershell.`n"
+        [Console]::ResetColor()
         exit
     }
 }
@@ -72,4 +73,5 @@ choco install powershell-core -a
 
 (get-host).UI.RawUI.Backgroundcolor="DarkGreen"
 echo "`nPlease change Powershell and Visual Studio Code font to Delugia NerdFont.`n"
+[Console]::ResetColor()
 exit
