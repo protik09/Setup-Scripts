@@ -69,7 +69,7 @@ foreach ($f in $(Get-ChildItem $font_destination))
 }
 
 # Install Powershell 7
-choco install powershell-core -a
+# choco install powershell-core -a
 
 (get-host).UI.RawUI.Backgroundcolor="DarkGreen"
 echo "`nPlease change Powershell and Visual Studio Code font to Delugia NerdFont.`n"
