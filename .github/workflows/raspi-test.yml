@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run the raspberry pi QEMU image and run the test script in the VM
-      run: docker run -it -v $HOME/.dockerpi:/sdcard lukechilds/dockerpi
+      run: docker run -i -v $HOME/.dockerpi:/sdcard lukechilds/dockerpi
