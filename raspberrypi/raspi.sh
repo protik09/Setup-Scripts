@@ -48,11 +48,51 @@ else
 EOF
 fi
 
+# Install btop
+# Check if btop exists else install
+if command -v btop &> /dev/null; then
+    echo "btop already installed"
+else
+    # Get the latest tbz from github
+    wget https://github.com/aristocratos/btop/releases/latest/download/btop-armv5l-linux-musleabi.tbz
+    # Extract the tbz using tar
+    tar -xjf btop-armv5l-linux-musleabi.tbz
+    # Follow install instruction from https://github.com/aristocratos/btop
+    pushd btop
+    sudo make install
+    sudo make setuid
+    popd
+    # Remove the tbz and the extracted folder
+    rm btop-armv5l-linux-musleabi.tbz
+    rm -rf btop
+fi
+
+
 # Install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Check if rust exists else install
+if command -v rustc &> /dev/null; then
+    echo "rust already installed"
+else
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 # Install pyenv
-curl https://pyenv.run | bash
+# Check if pyenv exists else install
+if command -v pyenv &> /dev/null; then
+    echo "pyenv already installed"
+else
+    curl https://pyenv.run | bash
+    if grep -q "pyenv init" ~/.bashrc; then
+        echo "pyenv init already in bashrc"
+    else
+        cat <<EOF >> ~/.bashrc
+        # Add pyenv init to bashrc
+        export PATH="\$HOME/.pyenv/bin:\$PATH"
+        eval "\$(pyenv init -)"
+        eval "\$(pyenv virtualenv-init -)"
+EOF
+    fi
+fi
 
 # Add bash aliases
 # Check to see if alias already in bash_aliases
@@ -86,4 +126,9 @@ if grep -q "alias pyenv='~/.pyenv/bin/pyenv'" ~/.bash_aliases; then
 else
     echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
 fi
-source "$HOME/.bash_rc"
+if grep -q "alias htop='btop'" ~/.bash_aliases; then
+    echo "alias htop already in bash_aliases"
+else
+    echo "alias htop='btop'" >> ~/.bash_aliases
+fi
+source "$HOME/.bashrc"
