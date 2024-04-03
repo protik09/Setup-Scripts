@@ -9,7 +9,7 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 # Install dependencies for pyenv
 sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
-libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
 cmake ninja-build pkg-config libclang-dev gcc g++ clang
 
 sudo apt install -y vim
@@ -55,9 +55,35 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl https://pyenv.run | bash
 
 # Add bash aliases
-echo "alias ll='ls -l'" >> ~/.bash_aliases
-echo "alias la='ls -la'" >> ~/.bash_aliases
-echo "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" >> ~/.bash_aliases
-echo "alias python='python3'" >> ~/.bash_aliases
-echo "alias pip='pip3'" >> ~/.bash_aliases
-echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
+# Check to see if alias already in bash_aliases
+if grep -q "alias ll='ls -l'" ~/.bash_aliases; then
+    echo "alias ll already in bash_aliases"
+else
+    echo "alias ll='ls -l'" >> ~/.bash_aliases
+fi
+if grep -q "alias la='ls -la'" ~/.bash_aliases; then
+    echo "alias la already in bash_aliases"
+else
+    echo "alias la='ls -la'" >> ~/.bash_aliases
+fi
+if grep -q "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" ~/.bash_aliases; then
+    echo "alias updateall already in bash_aliases"
+else
+    echo "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" >> ~/.bash_aliases
+fi
+if grep -q "alias python='python3'" ~/.bash_aliases; then
+    echo "alias python already in bash_aliases"
+else
+    echo "alias python='python3'" >> ~/.bash_aliases
+fi
+if grep -q "alias pip='pip3'" ~/.bash_aliases; then
+    echo "alias pip already in bash_aliases"
+else
+    echo "alias pip='pip3'" >> ~/.bash_aliases
+fi
+if grep -q "alias pyenv='~/.pyenv/bin/pyenv'" ~/.bash_aliases; then
+    echo "alias pyenv already in bash_aliases"
+else
+    echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
+fi
+source "$HOME/.bash_rc"
