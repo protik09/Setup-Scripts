@@ -10,7 +10,7 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
-cmake ninja-build pkg-config libclang-dev gcc g++ clang
+cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bz2
 
 sudo apt install -y vim
 
@@ -18,19 +18,24 @@ sudo apt install -y vim
 sudo apt-get install -y python3-pip python3-pip python3-venv
 
 # Install python packages
-pip3 install --upgrade pip
-pip3 install --upgrade setuptools
-pip3 install --upgrade wheel
-pip3 install --upgrade virtualenv
-pip3 install --upgrade ipython
-pip3 install --upgrade jupyterlab
-pip3 install --upgrade numpy
-pip3 install --upgrade scipy
-pip3 install --upgrade pandas
-pip3 install --upgrade matplotlib
-pip3 install --upgrade seaborn
-pip3 install --upgrade coloredlogs
-pip3 install --upgrade numba
+# Use a loop to install Python packages
+python_packages=(pip setuptools wheel virtualenv ipython jupyterlab numpy scipy pandas matplotlib seaborn coloredlogs numba)
+for package in "${python_packages[@]}"; do
+    pip3 install --upgrade "$package"
+done
+# pip3 install --upgrade pip
+# pip3 install --upgrade setuptools
+# pip3 install --upgrade wheel
+# pip3 install --upgrade virtualenv
+# pip3 install --upgrade ipython
+# pip3 install --upgrade jupyterlab
+# pip3 install --upgrade numpy
+# pip3 install --upgrade scipy
+# pip3 install --upgrade pandas
+# pip3 install --upgrade matplotlib
+# pip3 install --upgrade seaborn
+# pip3 install --upgrade coloredlogs
+# pip3 install --upgrade numba
 
 # Check bashrc to see if gitprompt.sh is alread in bashrc
 if grep -q "gitprompt.sh" ~/.bashrc; then
@@ -105,7 +110,7 @@ pushd "$HOME/Git"
 if [ -d "$HOME/Git/Setup-Scripts" ]; then
     echo "Setup-Scripts already exists"
     pushd "$HOME/Git/Setup-Scripts"
-    git pull
+    git pull --rebase
     popd
 else
     git clone https://github.com/protik09/Setup-Scripts.git
@@ -114,7 +119,7 @@ fi
 if [ -d "$HOME/Git/MoveLowPriorityListToPrimaryList" ]; then
     echo "MoveLowPriorityListToPrimaryList already exists"
     pushd "$HOME/Git/MoveLowPriorityListToPrimaryList"
-    git pull
+    git pull --rebase
     popd
 else
     git clone https://github.com/protik09/MoveLowPriorityListToPrimaryList.git
@@ -123,41 +128,56 @@ fi
 
 # Add bash aliases
 # Check to see if alias already in bash_aliases
-if grep -q "alias ll='ls -l'" ~/.bash_aliases; then
-    echo "alias ll already in bash_aliases"
-else
-    echo "alias ll='ls -l'" >> ~/.bash_aliases
-fi
-if grep -q "alias la='ls -la'" ~/.bash_aliases; then
-    echo "alias la already in bash_aliases"
-else
-    echo "alias la='ls -la'" >> ~/.bash_aliases
-fi
-if grep -q "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" ~/.bash_aliases; then
-    echo "alias updateall already in bash_aliases"
-else
-    echo "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" >> ~/.bash_aliases
-fi
-if grep -q "alias python='python3'" ~/.bash_aliases; then
-    echo "alias python already in bash_aliases"
-else
-    echo "alias python='python3'" >> ~/.bash_aliases
-fi
-if grep -q "alias pip='pip3'" ~/.bash_aliases; then
-    echo "alias pip already in bash_aliases"
-else
-    echo "alias pip='pip3'" >> ~/.bash_aliases
-fi
-if grep -q "alias pyenv='~/.pyenv/bin/pyenv'" ~/.bash_aliases; then
-    echo "alias pyenv already in bash_aliases"
-else
-    echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
-fi
-if grep -q "alias htop='btop'" ~/.bash_aliases; then
-    echo "alias htop already in bash_aliases"
-else
-    echo "alias htop='btop'" >> ~/.bash_aliases
-fi
+# Use a loop to add aliases to ~/.bash_aliases
+aliases=(
+    "alias ll='ls -l'"
+    "alias la='ls -la'"
+    "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'"
+    "alias python='python3'"
+    "alias pip='pip3'"
+    "alias pyenv='~/.pyenv/bin/pyenv'"
+    "alias htop='btop'"
+)
+for alias_def in "${aliases[@]}"; do
+    if ! grep -q "$alias_def" ~/.bash_aliases; then
+        echo "$alias_def" >> ~/.bash_aliases
+    fi
+done
+# if grep -q "alias ll='ls -l'" ~/.bash_aliases; then
+#     echo "alias ll already in bash_aliases"
+# else
+#     echo "alias ll='ls -l'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias la='ls -la'" ~/.bash_aliases; then
+#     echo "alias la already in bash_aliases"
+# else
+#     echo "alias la='ls -la'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" ~/.bash_aliases; then
+#     echo "alias updateall already in bash_aliases"
+# else
+#     echo "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias python='python3'" ~/.bash_aliases; then
+#     echo "alias python already in bash_aliases"
+# else
+#     echo "alias python='python3'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias pip='pip3'" ~/.bash_aliases; then
+#     echo "alias pip already in bash_aliases"
+# else
+#     echo "alias pip='pip3'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias pyenv='~/.pyenv/bin/pyenv'" ~/.bash_aliases; then
+#     echo "alias pyenv already in bash_aliases"
+# else
+#     echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
+# fi
+# if grep -q "alias htop='btop'" ~/.bash_aliases; then
+#     echo "alias htop already in bash_aliases"
+# else
+#     echo "alias htop='btop'" >> ~/.bash_aliases
+# fi
 source "$HOME/.bashrc"
 
 cd "$HOME/Git/MoveLowPriorityListToPrimaryList"
