@@ -101,8 +101,25 @@ else
     mkdir "$HOME/Git"
 fi
 pushd "$HOME/Git"
-git clone https://github.com/protik09/Setup-Scripts.git
-git clone https://github.com/protik09/MoveLowPriorityListToPrimaryList.git
+# Check if Setup-Scripts already exists
+if [ -d "$HOME/Git/Setup-Scripts" ]; then
+    echo "Setup-Scripts already exists"
+    pushd "$HOME/Git/Setup-Scripts"
+    git pull
+    popd
+else
+    git clone https://github.com/protik09/Setup-Scripts.git
+fi
+# Check if MoveLowPriorityListToPrimaryList already exists
+if [ -d "$HOME/Git/MoveLowPriorityListToPrimaryList" ]; then
+    echo "MoveLowPriorityListToPrimaryList already exists"
+    pushd "$HOME/Git/MoveLowPriorityListToPrimaryList"
+    git pull
+    popd
+else
+    git clone https://github.com/protik09/MoveLowPriorityListToPrimaryList.git
+fi
+
 
 # Add bash aliases
 # Check to see if alias already in bash_aliases
@@ -142,3 +159,5 @@ else
     echo "alias htop='btop'" >> ~/.bash_aliases
 fi
 source "$HOME/.bashrc"
+
+cd "$HOME/Git/MoveLowPriorityListToPrimaryList"
