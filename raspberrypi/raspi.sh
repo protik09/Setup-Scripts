@@ -29,7 +29,7 @@ fi
 source "$HOME/.bashrc"
 
 # Use a loop to install Python packages
-python_packages=(pip setuptools wheel ipython jupyterlab numpy scipy pandas matplotlib seaborn coloredlogs numba)
+python_packages=(pip setuptools wheel ipython jupyterlab numpy pandas matplotlib seaborn coloredlogs numba)
 for package in "${python_packages[@]}"; do
     pip3 install --upgrade "$package" --break-system-packages
 done
