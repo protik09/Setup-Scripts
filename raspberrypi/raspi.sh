@@ -94,6 +94,16 @@ EOF
     fi
 fi
 
+# Check if folder Git exists
+if [ -d "$HOME/Git" ]; then
+    echo "Git folder already exists"
+else
+    mkdir "$HOME/Git"
+fi
+pushd "$HOME/Git"
+git clone https://github.com/protik09/Setup-Scripts.git
+git clone https://github.com/protik09/MoveLowPriorityListToPrimaryList.git
+
 # Add bash aliases
 # Check to see if alias already in bash_aliases
 if grep -q "alias ll='ls -l'" ~/.bash_aliases; then
