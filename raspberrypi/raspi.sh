@@ -22,8 +22,8 @@ if grep -q "/home/raspberry/.local/bin" ~/.bashrc; then
 else
     # Add /home/raspberry/.local/bin to bashrc
     cat <<EOF >> ~/.bashrc
-    # Add /home/raspberry/.local/bin to PATH
-    export PATH="\$HOME/.local/bin:\$PATH"
+# Add /home/raspberry/.local/bin to PATH
+export PATH="\$HOME/.local/bin:\$PATH"
 EOF
 fi
 source "$HOME/.bashrc"
@@ -55,12 +55,12 @@ else
     # Install magic monty git bash
     git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
     cat <<EOF >> ~/.bashrc
-    # Add stuff for the Magic Monty Bash Git Prompt
-    if [ -f "\$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-        GIT_PROMPT_ONLY_IN_REPO=1
-        source "\$HOME/.bash-git-prompt/gitprompt.sh"
-    fi
-    # End Magic Monty Bash Git Prompt
+# Add stuff for the Magic Monty Bash Git Prompt
+if [ -f "\$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source "\$HOME/.bash-git-prompt/gitprompt.sh"
+fi
+# End Magic Monty Bash Git Prompt
 EOF
 fi
 source "$HOME/.bashrc"
@@ -103,10 +103,10 @@ else
         echo "pyenv init already in bashrc"
     else
         cat <<EOF >> ~/.bashrc
-        # Add pyenv init to bashrc
-        export PATH="\$HOME/.pyenv/bin:\$PATH"
-        eval "\$(pyenv init -)"
-        eval "\$(pyenv virtualenv-init -)"
+# Add pyenv init to bashrc
+export PATH="\$HOME/.pyenv/bin:\$PATH"
+eval "\$(pyenv init -)"
+eval "\$(pyenv virtualenv-init -)"
 EOF
     fi
 fi
