@@ -16,6 +16,18 @@ cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim
 sudo apt-get install -y python3-pip
 
 # Install python packages
+# Check bashrc to see if /home/raspberry/.local/bin already exists
+if grep -q "/home/raspberry/.local/bin" ~/.bashrc; then
+    echo "/home/raspberry/.local/bin already in bashrc"
+else
+    # Add /home/raspberry/.local/bin to bashrc
+    cat <<EOF >> ~/.bashrc
+    # Add /home/raspberry/.local/bin to PATH
+    export PATH="\$HOME/.local/bin:\$PATH"
+EOF
+fi
+source "$HOME/.bashrc"
+
 # Use a loop to install Python packages
 python_packages=(pip setuptools wheel ipython jupyterlab numpy scipy pandas matplotlib seaborn coloredlogs numba)
 for package in "${python_packages[@]}"; do
@@ -35,19 +47,8 @@ done
 # pip3 install --upgrade coloredlogs
 # pip3 install --upgrade numba
 
-# Check bashrc to see if /home/raspberry/.local/bin already exists
-if grep -q "/home/raspberry/.local/bin" ~/.bashrc; then
-    echo "/home/raspberry/.local/bin already in bashrc"
-else
-    # Add /home/raspberry/.local/bin to bashrc
-    cat <<EOF >> ~/.bashrc
-    # Add /home/raspberry/.local/bin to PATH
-    export PATH="\$HOME/.local/bin:\$PATH"
-EOF
-fi
-source "$HOME/.bashrc"
 
-# Check bashrc to see if gitprompt.sh is alread in bashrc
+# Check bashrc to see if gitprompt.sh is already there
 if grep -q "gitprompt.sh" ~/.bashrc; then
     echo "gitprompt.sh already in bashrc"
 else
