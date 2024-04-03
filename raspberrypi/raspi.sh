@@ -33,20 +33,6 @@ python_packages=(pip setuptools wheel ipython jupyterlab numpy pandas matplotlib
 for package in "${python_packages[@]}"; do
     pip3 install --upgrade "$package" --break-system-packages
 done
-# pip3 install --upgrade pip
-# pip3 install --upgrade setuptools
-# pip3 install --upgrade wheel
-# pip3 install --upgrade virtualenv
-# pip3 install --upgrade ipython
-# pip3 install --upgrade jupyterlab
-# pip3 install --upgrade numpy
-# pip3 install --upgrade scipy
-# pip3 install --upgrade pandas
-# pip3 install --upgrade matplotlib
-# pip3 install --upgrade seaborn
-# pip3 install --upgrade coloredlogs
-# pip3 install --upgrade numba
-
 
 # Check bashrc to see if gitprompt.sh is already there
 if grep -q "gitprompt.sh" ~/.bashrc; then
@@ -155,41 +141,6 @@ for alias_def in "${aliases[@]}"; do
         echo "$alias_def" >> ~/.bash_aliases
     fi
 done
-# if grep -q "alias ll='ls -l'" ~/.bash_aliases; then
-#     echo "alias ll already in bash_aliases"
-# else
-#     echo "alias ll='ls -l'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias la='ls -la'" ~/.bash_aliases; then
-#     echo "alias la already in bash_aliases"
-# else
-#     echo "alias la='ls -la'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" ~/.bash_aliases; then
-#     echo "alias updateall already in bash_aliases"
-# else
-#     echo "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias python='python3'" ~/.bash_aliases; then
-#     echo "alias python already in bash_aliases"
-# else
-#     echo "alias python='python3'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias pip='pip3'" ~/.bash_aliases; then
-#     echo "alias pip already in bash_aliases"
-# else
-#     echo "alias pip='pip3'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias pyenv='~/.pyenv/bin/pyenv'" ~/.bash_aliases; then
-#     echo "alias pyenv already in bash_aliases"
-# else
-#     echo "alias pyenv='~/.pyenv/bin/pyenv'" >> ~/.bash_aliases
-# fi
-# if grep -q "alias htop='btop'" ~/.bash_aliases; then
-#     echo "alias htop already in bash_aliases"
-# else
-#     echo "alias htop='btop'" >> ~/.bash_aliases
-# fi
 source "$HOME/.bashrc"
 
 cd "$HOME/Git/MoveLowPriorityListToPrimaryList"
