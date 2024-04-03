@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run the raspberry pi QEMU image and run the test script in the VM
+      run: docker run -it -v $HOME/.dockerpi:/sdcard lukechilds/dockerpi
