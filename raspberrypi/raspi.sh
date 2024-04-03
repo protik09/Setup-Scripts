@@ -32,15 +32,21 @@ pip3 install --upgrade seaborn
 pip3 install --upgrade coloredlogs
 pip3 install --upgrade numba
 
-# Install magic monty git bash
-git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-cat <<EOT >> ~/.bashrc
-# Add stuff for the Magic Monty Bash Git Prompt
-if [ -f "\$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source "\$HOME/.bash-git-prompt/gitprompt.sh"
+# Check bashrc to see if gitprompt.sh is alread in bashrc
+if grep -q "gitprompt.sh" ~/.bashrc; then
+    echo "gitprompt.sh already in bashrc"
+else
+    # Install magic monty git bash
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+    cat <<EOF >> ~/.bashrc
+    # Add stuff for the Magic Monty Bash Git Prompt
+    if [ -f "\$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+        GIT_PROMPT_ONLY_IN_REPO=1
+        source "\$HOME/.bash-git-prompt/gitprompt.sh"
+    fi
+    # End Magic Monty Bash Git Prompt
+EOF
 fi
-EOT
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
