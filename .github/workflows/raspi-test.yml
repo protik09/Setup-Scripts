@@ -1,18 +1,33 @@
-name: Docker Image CI
+name: Test install script on multiple arch and distro
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ master ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ master ]
 
 jobs:
-
-  build:
-
+  run-on-arch:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        arch: 
+          - aarch64
+          - armv6
+          - armv7
+        distro:
+          - ubuntu20.04
+          - ubuntu22.04
+          - stretch
+          - buster
+          - bullseye
+          - alpine_latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Run the raspberry pi QEMU image and run the test script in the VM
-      run: docker run -i -v $HOME/.dockerpi:/sdcard lukechilds/dockerpi
+      - uses: actions/checkout@v3
+      - uses: uraimo/run-on-arch-action@v2
+        name: Run command on ${{ matrix.distro }} ${{ matrix.arch }}
+        with:
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
+          run: |
+            wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
