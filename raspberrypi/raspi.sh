@@ -15,7 +15,7 @@ cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2
 sudo apt install -y vim
 
 # Install python build-tools
-sudo apt-get install -y python3-pip python3-pip python3-venv
+sudo apt-get install -y python3-pip
 
 # Install python packages
 # Use a loop to install Python packages
