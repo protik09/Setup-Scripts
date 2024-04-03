@@ -10,9 +10,7 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
-cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2
-
-sudo apt install -y vim
+cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim
 
 # Install python build-tools
 sudo apt-get install -y python3-pip
@@ -37,6 +35,18 @@ done
 # pip3 install --upgrade coloredlogs
 # pip3 install --upgrade numba
 
+# Check bashrc to see if /home/raspberry/.local/bin already exists
+if grep -q "/home/raspberry/.local/bin" ~/.bashrc; then
+    echo "/home/raspberry/.local/bin already in bashrc"
+else
+    # Add /home/raspberry/.local/bin to bashrc
+    cat <<EOF >> ~/.bashrc
+    # Add /home/raspberry/.local/bin to PATH
+    export PATH="\$HOME/.local/bin:\$PATH"
+EOF
+fi
+source "$HOME/.bashrc"
+
 # Check bashrc to see if gitprompt.sh is alread in bashrc
 if grep -q "gitprompt.sh" ~/.bashrc; then
     echo "gitprompt.sh already in bashrc"
@@ -52,6 +62,7 @@ else
     # End Magic Monty Bash Git Prompt
 EOF
 fi
+source "$HOME/.bashrc"
 
 # Install btop
 # Check if btop exists else install
