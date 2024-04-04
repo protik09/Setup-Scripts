@@ -16,14 +16,16 @@ It also includes scripts for autoupdating git folders.
 
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 
-Run the following command to setup the raspberry pi 1
+1. Ensure that the swap file size is over 1GB. Follow the  <a href="https://pimylifeup.com/raspberry-pi-swap-file/">instructions here</a> to increase the swap file size.
 
-```bash
-wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
-```
+1. Run the following command to setup the raspberry pi 1
 
-Run the following command to setup the most common rust programs
+    ```bash
+    wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
+    ```
 
-```bash
-wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
-```
+1. Run the following command to setup the most common rust programs
+
+    ```bash
+    wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
+    ```
