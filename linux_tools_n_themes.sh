@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-download_dir = ./Downloads
-
 # First let's add all the new repositories to the list
 
 echo "Adding the Themes Repositories to the list..."

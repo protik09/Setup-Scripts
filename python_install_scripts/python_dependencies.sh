@@ -85,7 +85,7 @@ zedboarddepends()
 gitclone()
 {
 	git clone https://github.com/derekstavis/python-sysfs-gpio.git
-	cd python-sysfs-gpio
+	cd python-sysfs-gpio || exit
 	python setup.py install
 }
 

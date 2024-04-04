@@ -51,4 +51,3 @@ code --install-extension vsciot-vscode.vscode-arduino
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension zhuangtongfa.Material-theme
 code --install-extension Zignd.html-css-class-completion
-
