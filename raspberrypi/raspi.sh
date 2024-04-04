@@ -126,6 +126,18 @@ fi
 
 
 # Add bash aliases
+# Define the path to the bash_aliases file
+file="$HOME/.bash_aliases"
+
+# Check if the file exists
+if [ ! -f "$file" ]; then
+    # If the file doesn't exist, create it
+    touch "$file"
+    echo "bash_aliases file created."
+else
+    # If the file exists, do nothing
+    echo "bash_aliases file already exists."
+fi
 # Check to see if alias already in bash_aliases
 # Use a loop to add aliases to ~/.bash_aliases
 aliases=(
