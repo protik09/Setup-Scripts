@@ -58,7 +58,7 @@ if command -v btop &> /dev/null; then
     echo "btop already installed"
 else
     # Get the latest tbz from github
-    wget https://github.com/aristocratos/btop/releases/latest/download/btop-armv5l-linux-musleabi.tbz
+    wget --secure-protocol=TLSv1_2 --check-certificate https://github.com/aristocratos/btop/releases/latest/download/btop-armv5l-linux-musleabi.tbz
     # Extract the tbz using tar
     tar -xjf btop-armv5l-linux-musleabi.tbz
     # Follow install instruction from https://github.com/aristocratos/btop
