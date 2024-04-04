@@ -10,7 +10,8 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
-cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim
+cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim \
+libopenblas-dev
 
 # Install python build-tools
 sudo apt-get install -y python3-pip

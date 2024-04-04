@@ -1,4 +1,4 @@
-# Setup-Scripts
+# Setup Scripts
 
 ![alt text](https://github.com/protik09/Setup-Scripts/blob/master/assets/Github_Repo_Card_Setup_Scripts_final.jpg?raw=true "Setup-Scripts")
 
