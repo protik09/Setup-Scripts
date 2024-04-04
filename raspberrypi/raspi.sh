@@ -92,9 +92,9 @@ else
     else
         cat <<EOF >> ~/.bashrc
 # Add pyenv init to bashrc
-export PATH="\$HOME/.pyenv/bin:\$PATH"
-eval "\$(pyenv init -)"
-eval "\$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 EOF
     fi
 fi
