@@ -9,7 +9,7 @@ the Staging Area, downloads subtitles for them and then renames as per my media 
 
 @author: Protik Banerji
 """
-        
+
 import os
 import sys
 import colorama as cm
@@ -19,7 +19,12 @@ import termcolor as tc
 cm.init(strip=(not sys.stdout.isatty()))  # strip colors if stdout is redirected
 
 
-def Banner(input_string_='Banner', fore_ground_='white', back_ground_='on_grey', banner_font_='ogre'):
+def Banner(
+    input_string_="Banner",
+    fore_ground_="white",
+    back_ground_="on_grey",
+    banner_font_="ogre",
+):
     """
 
     Nice banner on the top of the calling program.
@@ -40,11 +45,14 @@ def Banner(input_string_='Banner', fore_ground_='white', back_ground_='on_grey',
     fore_ground_ = fore_ground_.lower()
     back_ground_ = back_ground_.lower()
     banner_font_ = banner_font_.lower()
-    tc.cprint(pf.figlet_format(input_string_, font=banner_font_),
-              fore_ground_, back_ground_, attrs=['bold'])
+    tc.cprint(
+        pf.figlet_format(input_string_, font=banner_font_),
+        fore_ground_,
+        back_ground_,
+        attrs=["bold"],
+    )
 
     return
-
 
 
 if __name__ == "__main__":
