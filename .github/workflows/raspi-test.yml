@@ -7,27 +7,44 @@ on:
     branches: [ master ]
 
 jobs:
-  run-on-arch:
-    runs-on: ubuntu-latest
+  run_script:
+    runs-on: ubuntu-22.04
+    name: Run script on ${{ matrix.distro }} ${{ matrix.arch }}
     strategy:
       matrix:
-        arch: 
-          - aarch64
-          - armv6
-          - armv7
-        distro:
-          - ubuntu20.04
-          - ubuntu22.04
-          - stretch
-          - buster
-          - bullseye
-          - alpine_latest
+        include:
+          - arch: aarch64
+            distro: ubuntu22.04
+          - arch: aarch64
+            distro: ubuntu20.04
+          - arch: aarch64
+            distro: buster
+          - arch: aarch64
+            distro: bullseye
+          - arch: armv7
+            distro: buster
+          - arch: armv7
+            distro: bullseye
+          - arch: armv6
+            distro: buster
+          - arch: armv6
+            distro: bullseye
+
     steps:
       - uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
-        name: Run command on ${{ matrix.distro }} ${{ matrix.arch }}
+        name: Run script
         with:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}
+          githubToken: ${{ github.token }}
+          shell: /bin/bash
+          install: |
+            case "${{ matrix.distro }}" in
+              ubuntu*|buster|bullseye)
+                apt-get update -q -y
+                apt-get install -q -y wget
+                ;;
+            esac
           run: |
             wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
