@@ -12,10 +12,10 @@ fi
 # Check if tealdeer already exists in rustup
 if ! command -v tldr &> /dev/null; then
     echo "Installing tealdeer"
-    cargo binstall tealdeer
+    cargo binstall tealdeer -y
 fi
 # Check if just app already exists
 if ! command -v just &> /dev/null; then
     echo "Installing just"
-    cargo binstall just
+    cargo binstall just -y
 fi
