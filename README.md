@@ -21,11 +21,12 @@ It also includes scripts for autoupdating git folders.
 1. Run the following command to setup the raspberry pi 1
 
     ```bash
-    wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
+    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
     ```
 
 1. Run the following command to setup the most common rust programs
 
     ```bash
-    wget -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
+    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
+
     ```
