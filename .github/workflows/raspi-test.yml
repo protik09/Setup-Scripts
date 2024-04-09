@@ -2,9 +2,7 @@ name: Test install script on multiple arch and distro
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ dev ]
 
 jobs:
   run_script:
