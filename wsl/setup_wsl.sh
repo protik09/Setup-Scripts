@@ -29,10 +29,20 @@ source "$HOME/.bashrc"
 # Use a loop to install Python packages
 export LLVM_CONFIG=llvm-config-14 # This env var is to fix issues with installs of llvmlite and numba
 python_packages=(pip setuptools wheel ipython jupyterlab numpy pandas matplotlib seaborn coloredlogs numba uv)
-for package in "${python_packages[@]}"; do
-    pip3 install --upgrade "$package" --break-system-packages
-done
 
+# Get the Python version
+python_version=$(python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)
+
+for package in "${python_packages[@]}"; do
+    # Check the Python version
+    if (( $(echo "$python_version > 3.10" | bc -l) )); then
+        # If the Python version is less than 3.8, include the --break-system-packages flag
+        pip3 install --upgrade "$package" --break-system-packages
+    else
+        # If the Python version is 3.8 or greater, skip the --break-system-packages flag
+        pip3 install --upgrade "$package"
+    fi
+done
 # Check bashrc to see if gitprompt.sh is already there
 if grep -q "gitprompt.sh" ~/.bashrc; then
     echo "gitprompt.sh already in bashrc"
