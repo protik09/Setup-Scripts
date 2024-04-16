@@ -144,7 +144,7 @@ fi
 aliases=(
     "alias ll='ls -l'"
     "alias la='ls -la'"
-    "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'"
+    "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y; rustup update; cargo install-update -a'"
     "alias udpateall='updateall'"
     "alias python='python3'"
     "alias pip='pip3'"
