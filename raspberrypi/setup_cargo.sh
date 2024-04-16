@@ -127,16 +127,13 @@ fi
 
 ### ADD ANY MORE INSTALL STUFF ABOVE THIS LINE!!! THIS CHUNK NEEDS TO BE AT THE BOTTOM OF THIS FILE!
 # Check if zoxide change directory module already exists
-if ! grep -q 'eval "$(zoxide init --cmd cd bash)"' ~/.bashrc &> /dev/null; then
+if ! grep -q 'zoxide init' ~/.bashrc &> /dev/null; then
     echo "Installing Zoxide"
     cargo binstall zoxide -y
-    if ! grep -q "zoxide init" ~/.bashrc &> /dev/null; then
-        cat <<EOF >> ~/.bashrc
+    cat <<EOF >> ~/.bashrc
 # Zoxide better CD (THIS ALWAYS NEEDS TO BE AT THE BOTTOM OF BASHRC!!)
 eval "$(zoxide init --cmd cd bash)"
-
 EOF
-    fi
 else
     echo "Zoxide already installed."
 fi
