@@ -93,7 +93,7 @@ fzf_install() {
     tar -xf fzf.tar.gz
 
     # Move the fzf binary to the local bin folder
-    echo "Moving fzf to /usr/local/bin..."
+    echo "Moving fzf to ~/.local/bin..."
     mv fzf ~/.local/bin
     # sudo mv fzf /usr/local/bin/
 
