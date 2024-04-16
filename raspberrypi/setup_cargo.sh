@@ -73,11 +73,11 @@ fzf_install() {
     elif [ "$arch" = "aarch64" ]; then
         arch="arm64"
     elif [ "$arch" = "armv5l" ]; then
-        arch="arm5"
+        arch="armv5"
     elif [ "$arch" = "armv6l" ]; then
-        arch="arm6"
+        arch="armv6"
     elif [ "$arch" = "armv7l" ]; then
-        arch="arm7"
+        arch="armv7"
     fi
     echo "Architecture detected as: $arch"
 
