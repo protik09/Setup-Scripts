@@ -13,6 +13,8 @@ It also includes scripts for autoupdating git folders.
 
 ## Setup WSL
 
+![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white) ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420.svg?style=for-the-badge&logo=ubuntu&logoColor=white)
+
 1. Run the following command to setup the WSL.
 
 ```bash
@@ -22,10 +24,10 @@ wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/wsl/setup_wsl.
 
 1. Run the following command to setup the most common rust programs
 
-```bash
-wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
+    ```bash
+    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/setup_cargo.sh | bash
 
-```
+    ```
 
 ## Setup Raspberry Pi
 
@@ -36,12 +38,12 @@ wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/ra
 1. Run the following command to setup the raspberry pi 1
 
     ```bash
-    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi.sh | bash
+    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/setup_raspi.sh | bash
     ```
 
 1. Run the following command to setup the most common rust programs
 
     ```bash
-    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/raspi_cargo.sh | bash
+    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/setup_cargo.sh | bash
 
     ```
