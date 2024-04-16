@@ -19,15 +19,13 @@ It also includes scripts for autoupdating git folders.
 
 ```bash
 wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/wsl/setup_wsl.sh | bash
-
 ```
 
 1. Run the following command to setup the most common rust programs
 
-    ```bash
-    wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/setup_cargo.sh | bash
-
-    ```
+```bash
+wget -q -O - https://github.com/protik09/Setup-Scripts/raw/master/raspberrypi/setup_cargo.sh | bash
+```
 
 ## Setup Raspberry Pi
 
