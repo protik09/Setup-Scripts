@@ -115,12 +115,12 @@ if ! command -v fzf &> /dev/null; then
     fzf_install
 else
     current_version=$(fzf --version | cut -d' ' -f1)
-    echo "fzf v$current_version already installed."
+    echo "fzf $current_version already installed."
 fi
 
 # Compare versions
 if [[ "$current_version" < "$latest_release_tag" ]]; then
-    echo "fzf is outdated. Installing the latest version..."
+    echo "fzf $current_version is outdated. Installing the latest version $latest_release_tag..."
     fzf_install
 fi
 
@@ -130,7 +130,7 @@ fi
 if ! grep -q 'eval "$(zoxide init --cmd cd bash)"' ~/.bashrc &> /dev/null; then
     echo "Installing Zoxide"
     cargo binstall zoxide -y
-    if ! grep -q "zoxide init" ~/.bashrc; then
+    if ! grep -q "zoxide init" ~/.bashrc &> /dev/null; then
         cat <<EOF >> ~/.bashrc
 # Zoxide better CD (THIS ALWAYS NEEDS TO BE AT THE BOTTOM OF BASHRC!!)
 eval "$(zoxide init --cmd cd bash)"
