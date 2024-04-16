@@ -73,6 +73,7 @@ fzf_install() {
     elif [ "$arch" = "aarch64" ]; then
         arch="arm64"
     fi
+    echo "Architecture detected as: $arch"
 
     # Construct download URL for the latest release
     download_url="https://github.com/junegunn/fzf/releases/download/${latest_release_tag}/fzf-${latest_release_tag}-linux_${arch}.tar.gz"
