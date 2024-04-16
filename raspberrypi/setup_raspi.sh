@@ -145,6 +145,7 @@ aliases=(
     "alias ll='ls -l'"
     "alias la='ls -la'"
     "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'"
+    "alias udpateall='updateall'"
     "alias python='python3'"
     "alias pip='pip3'"
     "alias pyenv='~/.pyenv/bin/pyenv'"
