@@ -79,13 +79,13 @@ fzf_install() {
     elif [ "$arch" = "armv7l" ]; then
         arch="armv7"
     fi
-    echo "Architecture detected as: $arch"
+    # echo "Architecture detected as: $arch"
 
     # Construct download URL for the latest release
     download_url="https://github.com/junegunn/fzf/releases/download/${latest_release_tag}/fzf-${latest_release_tag}-linux_${arch}.tar.gz"
 
     # Download the latest fzf release
-    echo "Downloading fzf ${latest_release_tag}..."
+    echo "Downloading fzf ${latest_release_tag}... from $download_url"
     wget -q "$download_url" -O fzf.tar.gz
 
     # Extract the downloaded archive
