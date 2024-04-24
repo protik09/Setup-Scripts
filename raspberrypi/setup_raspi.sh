@@ -11,7 +11,7 @@ sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
 cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim \
-libopenblas-dev llvm-14 tree
+libopenblas-dev llvm-14 tree ncdu
 
 # Install python build-tools
 sudo apt-get install -y python3-pip
@@ -150,6 +150,7 @@ aliases=(
     "alias pip='pip3'"
     "alias pyenv='~/.pyenv/bin/pyenv'"
     "alias htop='btop'"
+    "alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'" # -rr -x excludes files and folders from the scan
 )
 for alias_def in "${aliases[@]}"; do
     if ! grep -q "$alias_def" ~/.bash_aliases; then
