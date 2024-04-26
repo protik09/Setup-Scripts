@@ -27,11 +27,11 @@ if ! command -v bat &> /dev/null; then
     # Replace cat with bat
     aliases=(
     "cat='\bat'"
-    "dcat='\cat''"
+    "dcat='\cat'"
     )
     for alias_def in "${aliases[@]}"; do
         if ! grep -q "$alias_def" ~/.bash_aliases; then
-            echo "$alias_def" >> ~/.bash_aliases
+            echo "alias $alias_def" >> ~/.bash_aliases
         fi
     done
 else

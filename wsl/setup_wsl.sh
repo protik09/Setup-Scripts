@@ -89,11 +89,11 @@ fi
 
 # Install ollama
 # Check if ollama exists else install
-if command -v ollama &> /dev/null; then
-    echo "ollama already installed"
-else
-    curl --proto '=https' --tlsv1.2 -fsSL https://ollama.com/install.sh | sh
-fi
+# if command -v ollama &> /dev/null; then
+#     echo "ollama already installed"
+# else
+#     curl --proto '=https' --tlsv1.2 -fsSL https://ollama.com/install.sh | sh
+# fi
 
 # Add bash aliases
 # Define the path to the bash_aliases file
@@ -111,19 +111,19 @@ fi
 # Check to see if alias already in bash_aliases
 # Use a loop to add aliases to ~/.bash_aliases
 aliases=(
-    "alias ll='ls -l'"
-    "alias la='ls -la'"
-    "alias updateall='sudo nala update; sudo nala upgrade --full -y; sudo apt autoremove -y; rustup update; cargo install-update -a'"
-    "alias udpateall='updateall'"
-    "alias python='python3'"
-    "alias pip='pip3'"
-    "alias pyenv='~/.pyenv/bin/pyenv'"
-    "alias htop='btop'"
-    "alias du='ncdu --color dark -rr -x --exclude .git'"
+    "ll='ls -l'"
+    "la='ls -la'"
+    "updateall='sudo nala update; sudo nala upgrade --full -y; sudo apt autoremove -y; rustup update; cargo install-update -a'"
+    "udpateall='updateall'"
+    "python='python3'"
+    "pip='pip3'"
+    "pyenv='~/.pyenv/bin/pyenv'"
+    "htop='btop'"
+    "du='ncdu --color dark -rr -x --exclude .git'"
 )
 for alias_def in "${aliases[@]}"; do
     if ! grep -q "$alias_def" ~/.bash_aliases; then
-        echo "$alias_def" >> ~/.bash_aliases
+        echo "alias $alias_def" >> ~/.bash_aliases
     fi
 done
 source "$HOME/.bashrc"
