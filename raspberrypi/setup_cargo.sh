@@ -102,6 +102,15 @@ fzf_install() {
     rm fzf.tar.gz
 
     echo "fzf ${latest_release_tag} installed successfully!"
+
+    # Check if eval "$(fzf --bash)" exists in bashrc
+    if ! grep -q 'eval "$(fzf --bash)"' ~/.bashrc &> /dev/null; then
+        echo "Adding fzf to bashrc..."
+        cat <<EOF >> ~/.bashrc
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+EOF
+    fi
 }
 # Check for latest fzf release
 latest_release_url="https://api.github.com/repos/junegunn/fzf/releases/latest"
