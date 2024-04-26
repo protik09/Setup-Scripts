@@ -11,7 +11,7 @@ sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
 cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim \
-libopenblas-dev llvm-14 tree ncdu
+libopenblas-dev llvm-14 tree ncdu bc
 
 # Install python build-tools
 sudo apt-get install -y python3-pip
@@ -32,8 +32,18 @@ source "$HOME/.bashrc"
 # Use a loop to install Python packages
 export LLVM_CONFIG=llvm-config-14 # This env var is to fix issues with installs of llvmlite and numba
 python_packages=(pip setuptools wheel ipython jupyterlab numpy pandas matplotlib seaborn coloredlogs numba uv)
+# Get the Python version
+python_version=$(python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)
+
 for package in "${python_packages[@]}"; do
-    pip3 install --upgrade "$package" --break-system-packages
+    # Check the Python version
+    if (( $(echo "$python_version > 3.10" | bc -l) )); then
+        # If the Python version is less than 3.8, include the --break-system-packages flag
+        pip3 install --upgrade "$package" --break-system-packages
+    else
+        # If the Python version is 3.8 or greater, skip the --break-system-packages flag
+        pip3 install --upgrade "$package"
+    fi
 done
 
 # Check bashrc to see if gitprompt.sh is already there
@@ -142,19 +152,18 @@ fi
 # Check to see if alias already in bash_aliases
 # Use a loop to add aliases to ~/.bash_aliases
 aliases=(
-    "alias ll='ls -l'"
-    "alias la='ls -la'"
-    "alias updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y; rustup update; cargo install-update -a'"
-    "alias udpateall='updateall'"
-    "alias python='python3'"
-    "alias pip='pip3'"
-    "alias pyenv='~/.pyenv/bin/pyenv'"
-    "alias htop='btop'"
-    "alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'" # -rr -x excludes files and folders from the scan
+    "ll='ls -l'"
+    "la='ls -la'"
+    "updateall='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y; rustup update; cargo install-update -a'"
+    "udpateall='updateall'"
+    "python='python3'"
+    "pip='pip3'"
+    "pyenv='~/.pyenv/bin/pyenv'"
+    "du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'" # -rr -x excludes files and folders from the scan
 )
 for alias_def in "${aliases[@]}"; do
     if ! grep -q "$alias_def" ~/.bash_aliases; then
-        echo "$alias_def" >> ~/.bash_aliases
+        echo "alias $alias_def" >> ~/.bash_aliases
     fi
 done
 source "$HOME/.bashrc"

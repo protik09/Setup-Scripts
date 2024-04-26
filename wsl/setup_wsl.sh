@@ -11,7 +11,7 @@ sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
 cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim \
-libopenblas-dev llvm-14 tree nala python3-pip ncdu
+libopenblas-dev llvm-14 tree nala python3-pip ncdu bc
 
 # Install python packages
 # Check bashrc to see if /home/raspberry/.local/bin already exists
@@ -121,7 +121,6 @@ aliases=(
     "python='python3'"
     "pip='pip3'"
     "pyenv='~/.pyenv/bin/pyenv'"
-    "htop='btop'"
     "du='ncdu --color dark -rr -x --exclude .git'"
 )
 for alias_def in "${aliases[@]}"; do
