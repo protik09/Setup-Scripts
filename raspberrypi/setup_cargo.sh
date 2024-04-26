@@ -108,7 +108,7 @@ fzf_install() {
         echo "Adding fzf to bashrc..."
         cat <<EOF >> ~/.bashrc
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
+eval "\$(fzf --bash)"
 EOF
     fi
 }
@@ -141,7 +141,7 @@ if ! grep -q 'zoxide init' ~/.bashrc &> /dev/null; then
     cargo binstall zoxide -y
     cat <<EOF >> ~/.bashrc
 # Zoxide better CD (THIS ALWAYS NEEDS TO BE AT THE BOTTOM OF BASHRC!!)
-eval "$(zoxide init --cmd cd bash)"
+eval "\$(zoxide init --cmd cd bash)"
 EOF
 else
     echo "Zoxide already installed."
