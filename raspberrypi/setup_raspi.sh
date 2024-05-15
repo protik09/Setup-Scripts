@@ -11,7 +11,8 @@ sudo apt-get install -y make git build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl \
 cmake ninja-build pkg-config libclang-dev gcc g++ clang tar bzip2 vim \
-libopenblas-dev llvm-14 tree ncdu bc
+libopenblas-dev llvm-14 tree ncdu bc software-properties-common \
+bash-completion
 
 # Install python build-tools
 sudo apt-get install -y python3-pip
@@ -82,6 +83,19 @@ else
     rm -rf btop
 fi
 
+# Install apt-fast
+# Check if apt-fast exists else install
+if command -v apt-fast &> /dev/null; then
+    echo "apt-fast already installed"
+else
+    # Install apt-fast
+    sudo add-apt-repository -y ppa:apt-fast/stable
+    sudo apt-get update
+    sudo apt-get -y install apt-fast
+    sudo cp completions/bash/apt-fast /etc/bash_completion.d/ # Enable bash completion
+    sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
+    source /etc/bash_completion
+fi
 
 # Install rust
 # Check if rust exists else install
