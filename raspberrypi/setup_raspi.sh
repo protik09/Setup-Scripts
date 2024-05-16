@@ -83,20 +83,6 @@ else
     rm -rf btop
 fi
 
-# Install apt-fast
-# Check if apt-fast exists else install
-if command -v apt-fast &> /dev/null; then
-    echo "apt-fast already installed"
-else
-    # Install apt-fast
-    sudo add-apt-repository -y ppa:apt-fast/stable
-    sudo apt-get update
-    sudo apt-get -y install apt-fast
-    sudo cp completions/bash/apt-fast /etc/bash_completion.d/ # Enable bash completion
-    sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
-    source /etc/bash_completion
-fi
-
 # Install rust
 # Check if rust exists else install
 if command -v rustc &> /dev/null; then
